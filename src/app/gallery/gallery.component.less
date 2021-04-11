@@ -1,0 +1,68 @@
+@import '../../assets/style/variables.less';
+@import '../../assets/style/mixins.less';
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.mat-elevation-z8 {
+  width: 100%;
+  background-color: @white;
+}
+
+.action-col {
+  padding-left: 5%;
+}
+
+.show-metamorphosis-btn {
+  color: @dark-grey;
+  font-size: 15px;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  background-color: transparent;
+  width: 210px;
+  height: 40px;
+}
+.fa-camera {
+  margin-right: 5px;
+}
+
+.container {
+  width: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: transparent;
+}
+table {
+  width: 100%;
+  background-color: @white;
+}
+th {
+  font-weight: 700;
+  text-transform: uppercase;
+  color: @dark-grey;
+}
+
+.add-img-btn {
+  .main-button();
+}
+.add-img-btn:hover {
+  .main-button-hover();
+}
+.add-img-btn i {
+  .main-button-icon();
+}
+
+.delete-btn,
+.img-btn,
+.edit-btn {
+  .delete-edit-button-icon();
+}
+
+.fa-image:hover {
+  color: @green;
+}

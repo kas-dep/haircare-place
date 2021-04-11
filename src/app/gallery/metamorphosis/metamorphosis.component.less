@@ -1,0 +1,44 @@
+@import '../../../assets/style/mixins.less';
+@import '../../../assets/style/variables.less';
+
+*{
+  .flex-centered();
+  flex-direction: column;
+}
+.hands-img{
+  width: 50px;
+  height: 50px;
+  align-self: center;
+  margin-bottom: 10px;
+}
+
+h1{
+  color: @coral;
+}
+
+.images{
+  flex-direction: row;
+}
+.images > div {
+  max-height: 400px;
+}
+.first-img img,
+.last-img img{
+  max-height: 300px;
+  max-width: 300px;
+  margin: 20px;
+  label{
+    position: relative;
+    bottom: 0;
+  }
+}
+i,
+label {
+  font-size: 20px;
+
+}
+
+button{
+  align-self: flex-end;
+  color: @coral;
+}

@@ -1,0 +1,7 @@
+<h1>Zdjęcie z dnia {{data.date | date:'dd.MM.yyyy'}}</h1>
+<div *ngIf="imageSrc">
+    <img class="image" [src]="imageSrc">
+</div>
+<div mat-dialog-actions>
+    <button mat-button mat-dialog-close>Zamknij</button>
+</div>

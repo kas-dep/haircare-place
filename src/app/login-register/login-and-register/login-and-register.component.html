@@ -1,0 +1,4 @@
+<div *ngIf="isComponentVisible" class="start">
+  <app-login  [@showHideForm]="login" class="login" (isRegistrationNeeded)="goToRegistration($event)"></app-login>
+  <app-register  [@showHideForm]="register" class="register" (isLoginNeeded)="goToLogin($event)"></app-register>
+</div>

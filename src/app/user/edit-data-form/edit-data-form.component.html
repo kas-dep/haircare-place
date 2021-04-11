@@ -1,0 +1,50 @@
+<app-dialog-header>
+    <p content>Edytuj dane</p>
+</app-dialog-header>
+<div class="data-container" mat-dialog-content>
+    <form [formGroup]="form">
+        <mat-form-field>
+            <mat-label>Nick</mat-label>
+            <input matInput type="text" formControlName="nick" required autocomplete="off">
+            <mat-error *ngIf="form.get('nick').dirty || form.get('nick').touched">
+                {{getErrorMessage('nick')}}
+            </mat-error>
+
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Imię</mat-label>
+            <input matInput type="text" formControlName="firstName" required autocomplete="off">
+            <mat-error *ngIf="form.get('firstName').dirty || form.get('firstName').touched">
+                {{getErrorMessage('firstName')}}
+            </mat-error>
+
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Nazwisko</mat-label>
+            <input matInput type="text" formControlName="lastName" required autocomplete="off">
+            <mat-error *ngIf="form.get('lastName').dirty || form.get('lastName').touched">
+                {{getErrorMessage('lastName')}}
+            </mat-error>
+
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Email</mat-label>
+            <input matInput type="text" formControlName="email" required autocomplete="off">
+            <mat-error *ngIf="form.get('email').dirty || form.get('email').touched">
+                {{getErrorMessage('email')}}
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Rodzaj włosów</mat-label>
+            <input matInput type="text" formControlName="hairType" required autocomplete="off">
+            <mat-error *ngIf="form.get('hairType').dirty || form.get('hairType').touched">
+                {{getErrorMessage('hairType')}}
+            </mat-error>
+        </mat-form-field>
+    </form>
+</div>
+<div class="buttons" mat-dialog-actions>
+    <button mat-button mat-dialog-close>Zamknij</button>
+    <button mat-button [disabled]="!form.valid || !form.dirty" (click)="updateUser()">Zapisz</button>
+</div>
+

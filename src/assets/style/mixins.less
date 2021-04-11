@@ -1,0 +1,49 @@
+@import './variables.less';
+
+.flex-centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-button {
+  width: 140px;
+  height: 40px;
+  color: @white;
+  background-color: @coral;
+  font-size: 15px;
+  border: none;
+  border-radius: 5px;
+  margin: 20px;
+  cursor: pointer;
+  outline: none;
+}
+
+.main-button-hover {
+  background-color: @dark-coral;
+}
+
+.main-button-icon {
+  margin-left: 5px;
+}
+.delete-edit-button-icon {
+  background-color: transparent;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  font-size: 16px;
+  align-items: center;
+
+  .fa-trash-alt:hover {
+    color: @red;
+  }
+  .fa-edit:hover {
+    color: @orange;
+  }
+}
+.btn-disabled {
+  cursor: not-allowed;
+  &:hover {
+    background-color: #ed666699;
+  }
+}

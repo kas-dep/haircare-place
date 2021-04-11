@@ -1,0 +1,32 @@
+<app-dialog-header>
+  <p content>Twoje aktywności z dnia {{day}} </p>
+</app-dialog-header>
+<table mat-table [dataSource]="source">
+  <ng-container matColumnDef="productName">
+    <th mat-header-cell *matHeaderCellDef> Nazwa produktu </th>
+    <td mat-cell *matCellDef="let element"> {{element.productName}} </td>
+  </ng-container>
+  <ng-container matColumnDef="coaLabel">
+    <th mat-header-cell *matHeaderCellDef> Kierunek działania </th>
+    <td mat-cell *matCellDef="let element"> {{element.coaLabel}} </td>
+  </ng-container>
+  <ng-container matColumnDef="action">
+    <th mat-header-cell *matHeaderCellDef></th>
+    <td mat-cell *matCellDef="let element">
+      <button class="edit-btn" aria-label="Edytuj aktywność" #tooltip="matTooltip" matTooltip="Edytuj"
+        (click)="openDialog(true, element)" matTooltipPosition="below">
+        <i class="far fa-edit"></i>
+      </button>
+      <button class="delete-btn" aria-label="Usuń produkt" #tooltip="matTooltip" matTooltip="Usuń"
+        (click)="openConfirmationDialog(element.id)" matTooltipPosition="below">
+        <i class="far fa-trash-alt"></i>
+      </button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+<div class="buttons" mat-dialog-actions>
+  <button mat-button mat-dialog-close>Zamknij</button>
+</div>

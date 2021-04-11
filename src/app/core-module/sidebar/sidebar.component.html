@@ -1,0 +1,18 @@
+<div class="sidebar">
+    <img class="logo-face" src="../../../assets/images/logo-face.PNG" alt="female">
+    <nav>
+        <a [routerLink]="['/moja-kosmetyczka']" routerLinkActive="active">Moja kosmetyczka</a>
+        <a [routerLink]="['/dziennik-zabiegów']" routerLinkActive="active">Dzienik zabiegów</a>
+        <a [routerLink]="['/galeria']" routerLinkActive="active">Galeria postępów</a>
+        <button (click)="showNestedMenu()" class="user">
+            <i class="fas fa-user"></i> {{userNick}} <i [@upAndDownAnimation]="stateName" class="fas fa-caret-down"></i>
+        </button>
+        <div *ngIf="show" @showHide class="nested-menu">
+            <a [routerLink]="['/moje-konto']" routerLinkActive="active-dark">Mój profil</a>
+            <button (click)="logOut()">
+                Wyloguj się
+                <i class="fas fa-power-off"></i>
+            </button>
+        </div>
+    </nav>
+</div>

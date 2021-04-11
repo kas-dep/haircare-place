@@ -1,0 +1,47 @@
+@import '../../assets/style/variables.less';
+@import '../../assets/style/mixins.less';
+
+.container {
+  width: 600px;
+  height: 500px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 5%;
+  background-color: @transparent-pink;
+}
+
+.no-user {
+  justify-content: start;
+  .picture-container{
+    margin: 32px
+  }
+}
+
+.picture-container {
+  flex-direction: column;
+  margin:20px 0 10px 0;
+}
+
+.user-picture {
+  height: 120px;
+  width: 120px;
+  border-radius: 50%;
+  border: 1px solid @red;
+  background-image: url(../../assets/images/curly-avatar.PNG);
+  background-size: cover ;
+}
+
+.edit-data-btn {
+  .main-button();
+  align-self: flex-end;
+}
+
+.edit-data-btn:hover {
+  .main-button-hover()
+}
+
+.edit-data-btn i {
+  .main-button-icon()
+}

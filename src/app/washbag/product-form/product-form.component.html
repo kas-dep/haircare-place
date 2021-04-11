@@ -1,0 +1,50 @@
+<app-dialog-header>
+    <p content>{{header}}</p>
+</app-dialog-header>
+<div class="data-container" mat-dialog-content>
+        <form [formGroup]="form">
+            <mat-form-field>
+                <mat-label>Nazwa Produktu</mat-label>
+                <input matInput type="text" formControlName="name" required autocomplete="off">
+                <mat-error *ngIf="form.get('name').invalid && form.get('name').dirty">
+                    To pole jest wymagane!
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Kategoria</mat-label>
+                <mat-select formControlName="categoryId" required>
+                    <mat-option *ngFor="let item of data.dicts.pcDict" [value]="item.id">
+                      {{item.label}}
+                    </mat-option>
+                </mat-select>
+                <mat-error>
+                    To pole jest wymagane!
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Kierunek działania</mat-label>
+                <mat-select formControlName="courseOfActionId" required>
+                    <mat-option *ngFor="let item of data.dicts.coaDict" [value]="item.id">
+                      {{item.label}}
+                    </mat-option>
+                </mat-select>
+                <mat-error>
+                    To pole jest wymagane!
+                </mat-error>
+            </mat-form-field>
+            <div class="rating">
+                <label>Ocena</label>
+                <app-star-rating
+                    [rate]="rate"
+                    [starCount]="5"
+                    [isEditMode]="true"
+                    (rateUpdated)="onRateChanged($event)">
+                </app-star-rating>
+            </div>
+                <mat-checkbox class="form-checkbox" checked formControlName="availability">Dostępność produktu</mat-checkbox>
+        </form>
+</div>
+<div class="buttons" mat-dialog-actions>
+  <button mat-button mat-dialog-close>Zamknij</button>
+  <button mat-button type="submit" [disabled]="!form.valid && valid || !form.dirty && !rateChanged" (click)="saveClick()">{{saveButtonLabel}}</button>
+</div>

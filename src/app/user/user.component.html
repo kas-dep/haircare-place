@@ -1,0 +1,41 @@
+<app-header>
+    <p levels>Mój profil</p>
+</app-header>
+<div [class.no-user]="!user" class="container">
+    <div class="picture-container">
+        <div class="user-picture"></div>
+    </div>
+    <div *ngIf="user else noUserInfo" class="data-labels">
+        <div>
+            <app-data-label>
+                <p dataLabel>Nick</p>
+                <p data>{{user?.nick}}</p>
+            </app-data-label>
+        </div>
+        <div>
+            <app-data-label>
+                <p dataLabel>Imię i nazwisko</p>
+                <p data>{{user?.firstName}} {{user?.lastName}}</p>
+            </app-data-label>
+        </div>
+        <div>
+            <app-data-label>
+                <p dataLabel>Adres email</p>
+                <p data>{{user?.email}}</p>
+            </app-data-label>
+        </div>
+        <div>
+            <app-data-label>
+                <p dataLabel>Rodzaj włosów</p>
+                <p data>{{user?.hairType}}</p>
+            </app-data-label>
+        </div>
+    </div>
+    <button *ngIf="user" class="edit-data-btn" (click)="openDialog()">Edytuj dane <i class="fas fa-edit"></i></button>
+</div>
+
+<ng-template #noUserInfo>
+    <div class="no-data-info">
+        <p>Brak danych do wyświetlenia</p>
+    </div>
+</ng-template>

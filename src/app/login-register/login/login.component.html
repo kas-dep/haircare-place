@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="login">
+        <i class="fas fa-user-circle"></i>
+        <h1>My Haircare Place</h1>
+        <div class="error-message" *ngIf="errorMessage.length">
+            {{errorMessage}} <i class="fas fa-exclamation-circle"></i>
+        </div>
+        <form [formGroup]='form' (ngSubmit)="handleSubmit()">
+            <mat-form-field>
+                <mat-label>Email</mat-label>
+                <input formControlName="email" matInput>
+                <mat-error *ngIf="form.get('email').dirty || form.get('email').touched">
+                    {{getErrorMessage('email')}}
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Hasło</mat-label>
+                <input formControlName="password" matInput [type]="hidePassword ? 'password' : 'text'">
+                <button type="button" mat-icon-button matSuffix (click)="hidePassword = !hidePassword"
+                    [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePassword">
+                    <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+                <mat-error *ngIf="form.get('password').dirty || form.get('password').touched">
+                    {{getErrorMessage('password')}}
+                </mat-error>
+            </mat-form-field>
+            <button class="login-btn" type="submit" [class.btn-disabled]="!form.valid" [disabled]="!form.valid">Zaloguj się</button>
+        </form>
+        <button (click)="goToRegister()" class="go-to-register-btn">Załóż nowe konto</button>
+    </div>
+</div>

@@ -1,0 +1,29 @@
+@import '../../../assets/style/mixins.less';
+@import '../../../assets/style/variables.less';
+
+table {
+  width: 100%;
+  background-color: @white;
+}
+
+th {
+  font-weight: 700;
+  text-transform: uppercase;
+  color: @dark-grey;
+  background-color: @pink;
+}
+.delete-btn,
+.edit-btn {
+  background-color: transparent;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  font-size: 15px;
+}
+.fa-trash-alt:hover {
+  color: @red;
+}
+
+.fa-edit:hover {
+  color: @orange;
+}

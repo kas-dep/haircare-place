@@ -1,0 +1,81 @@
+@import "../../../assets/style/variables.less";
+@import "../../../assets/style/mixins.less";
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column-reverse;
+}
+.fa-user-circle {
+  font-size: 60px;
+  color: @coral;
+}
+.login-avatar {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+}
+
+.go-to-register-btn {
+  width: 160px;
+  height: 40px;
+  color: #ffffff;
+  background-color: #405477;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  align-self: center;
+  cursor: pointer;
+}
+
+.login-btn {
+  .main-button();
+  align-self: center;
+  margin: 20px 0 0 0;
+  width: 160px;
+}
+.login-btn:hover {
+  .main-button-hover();
+}
+.go-to-register-btn:hover {
+  background-color: #475f86;
+}
+.error-message {
+  border-bottom: 1px solid red;
+  bottom: 105px;
+  color: red;
+  border-radius: 0;
+  font-size: 14px;
+}
+
+.login {
+  height: 450px;
+  width: 380px;
+  background-color: #ffff;
+  padding: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  border-radius: 10px;
+  margin: auto;
+  box-shadow: 0 8px 32px 0 #af8e8e;
+}
+.btn-disabled {
+  .btn-disabled();
+}
+
+h1 {
+  color: #ed6666;
+  margin: 0;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 15px;
+  width: 250px;
+}

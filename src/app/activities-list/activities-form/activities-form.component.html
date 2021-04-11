@@ -1,0 +1,33 @@
+<app-dialog-header>
+    <p content>{{header}}</p>
+</app-dialog-header>
+<div class="data-container" mat-dialog-content>
+    <form [formGroup]="form">
+        <mat-form-field>
+            <mat-label>Wybrana data</mat-label>
+            <input type="date" matInput formControlName="date" />
+            <mat-error>
+                To pole jest wymagane
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input type="text" placeholder="Produkt" aria-label="Produkt" matInput formControlName="productName"
+                [matAutocomplete]="auto" />
+            <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selectedProduct($event)">
+                <mat-option *ngFor="let option of filteredOptions | async" [value]="option.label">
+                    {{option.label}}
+                </mat-option>
+            </mat-autocomplete>
+            <mat-error>
+                To pole jest wymagane
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input type="text" readonly matInput placeholder="Kierunek działania" aria-label="kierunek działania" formControlName="coaLabel">
+        </mat-form-field>
+    </form>
+</div>
+<div class="buttons" mat-dialog-actions>
+    <button mat-button mat-dialog-close>Zamknij</button>
+    <button mat-button [disabled]="!form.dirty" (click)="saveClick()">Zapisz</button>
+</div>

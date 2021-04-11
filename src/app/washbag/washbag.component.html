@@ -1,0 +1,73 @@
+<app-header>
+  <p levels>Moja kosmetyczka</p>
+  <div content>
+    <p>Lista moich produktów do włosów</p>
+  </div>
+</app-header>
+
+<div class="container">
+  <div *ngIf="products && products.length > 0 else noProductsInfo" class="mat-elevation-z8">
+    <mat-form-field class="filter">
+      <mat-label>Wyszukaj produkt</mat-label>
+      <input autocomplete="off" matInput (keyup)="applyFilter($event)" placeholder="Wpisz nazwę produktu" #input>
+    </mat-form-field>
+
+    <table mat-table matSort [dataSource]="dataSource">
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Nazwa Produktu </th>
+        <td class="col-30" mat-cell *matCellDef="let el"> {{el.name}} </td>
+      </ng-container>
+      <ng-container matColumnDef="categoryId">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Kategoria </th>
+        <td class="col-15" mat-cell *matCellDef="let el"> {{el.categoryId | dictionaryPipe:pcDict}} </td>
+      </ng-container>
+      <ng-container matColumnDef="courseOfActionId">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Kierunek działania </th>
+        <td class="col-18" mat-cell *matCellDef="let el"> {{el.courseOfActionId | dictionaryPipe:coaDict}} </td>
+      </ng-container>
+      <ng-container matColumnDef="rate">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Ocena </th>
+        <td class="col-15" mat-cell *matCellDef="let el">
+          <app-star-rating [rate]=el.rate [isEditMode]="false" [starCount]="5">
+          </app-star-rating>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="availability">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Dostępność<br> produktu </th>
+        <td class="col-12" *matCellDef="let el" mat-cell>
+          <span *ngIf="el.availability" class="check fas fa-check"></span>
+          <span *ngIf="!el.availability" class="uncheck"><i class="fas fa-times"></i></span>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td class="col-10" mat-cell *matCellDef="let el">
+          <button class="edit-btn" aria-label="Edytuj produkt" (click)="openDialog('productForm', true, el)"
+            #tooltip="matTooltip" matTooltip="Edytuj" matTooltipPosition="below">
+            <i class="far fa-edit"></i>
+          </button>
+          <button class="delete-btn" aria-label="Usuń produkt" (click)="openDialog('canDelete', false, el)"
+            #tooltip="matTooltip" matTooltip="Usuń" matTooltipPosition="below">
+            <i class="far fa-trash-alt"></i>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+    </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 15]"></mat-paginator>
+
+  </div>
+
+  <button class="add-product-btn" (click)="openDialog('productForm', false)">
+    Dodaj produkt <i class="fas fa-plus"></i>
+  </button>
+
+  <ng-template #noProductsInfo>
+    <div class="no-data-info">
+      <p>Brak produktów w kosmetyczne</p>
+    </div>
+  </ng-template>
+</div>

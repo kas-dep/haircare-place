@@ -1,0 +1,57 @@
+@import "../../../assets/style/variables.less";
+@import "../../../assets/style/mixins.less";
+
+.container {
+  height: 530px;
+  width: 340px;
+  padding: 16px;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  border-radius: 10px;
+  box-shadow: 0 8px 32px 0 #af8e8e;
+}
+
+.go-to-login-btn {
+  height: 40px;
+  color: #ffffff;
+  background-color: #475f86;
+  font-size: 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  outline: none;
+  width: 245px;
+  margin: auto;
+}
+
+.register {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  font-size: 15px;
+  width: 250px;
+}
+.btn {
+  padding: 0;
+  margin: 0;
+}
+.register-btn {
+  .main-button();
+  align-self: center;
+  width: 245px;
+}
+.register-btn:hover {
+  .main-button-hover();
+}
+.btn-disabled {
+  .btn-disabled();
+}

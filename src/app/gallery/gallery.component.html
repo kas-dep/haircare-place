@@ -1,0 +1,51 @@
+<app-header>
+    <p levels>Galeria postępów</p>
+    <p content>Śledź zmiany jakie zachodzą na Twojej głowie</p>
+</app-header>
+
+<div class="actions">
+    <button *ngIf="pictures && pictures.length > 0" (click)="openMetamorphosisDialog()" class="show-metamorphosis-btn">
+        <i class="fas fa-camera"></i> Zobacz swoją przemianę</button>
+    <button class="add-img-btn" (click)="openAddImgDialog()">Dodaj zdjęcie <i class="fas fa-plus"></i></button>
+</div>
+<div class="container">
+    <div *ngIf="pictures && pictures.length > 0 else noPicturesInfo" class="mat-elevation-z8">
+        <table mat-table [dataSource]="dataSource" matSort>
+            <ng-container matColumnDef="date">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Data</th>
+                <td class="col-20" mat-cell *matCellDef="let el">{{ el.date | date:'dd.MM.yyyy' }}</td>
+            </ng-container>
+            <ng-container matColumnDef="note">
+                <th mat-header-cell *matHeaderCellDef>Notatka</th>
+                <td class="col-50" mat-cell *matCellDef="let el">{{ el.note }}</td>
+            </ng-container>
+            <ng-container matColumnDef="actions">
+                <th mat-header-cell *matHeaderCellDef></th>
+                <td class="col-20 action-col" mat-cell *matCellDef="let el">
+                    <button class="img-btn" aria-label="Zobacz zdjecie" (click)="showImageInDialog(el)"
+                        #tooltip="matTooltip" matTooltip="Zobacz zdjęcie" matTooltipPosition="below">
+                        <i class="far fa-image"></i>
+                    </button>
+                    <button class="edit-btn" aria-label="Edytuj zdjęcie" (click)="getImageAndEdit(true, el)"
+                        #tooltip="matTooltip" matTooltip="Edytuj" matTooltipPosition="below">
+                        <i class="far fa-edit"></i>
+                    </button>
+                    <button class="delete-btn" aria-label="Usuń zdjęcie" (click)="openConfirmationDialog(el.id)"
+                        #tooltip="matTooltip" matTooltip="Usuń" matTooltipPosition="below">
+                        <i class="far fa-trash-alt"></i>
+                    </button>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+        <mat-paginator [pageSizeOptions]="[5, 10, 15]"></mat-paginator>
+    </div>
+</div>
+
+<ng-template #noPicturesInfo>
+    <div class="no-data-info">
+        <p>Brak zdjęć zapisanych w galerii</p>
+    </div>
+</ng-template>

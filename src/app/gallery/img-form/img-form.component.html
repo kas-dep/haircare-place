@@ -1,0 +1,41 @@
+<app-dialog-header>
+  <p content>{{header}}</p>
+</app-dialog-header>
+<div class="data-container" mat-dialog-content>
+  <form [formGroup]="form">
+    <mat-form-field>
+        <mat-label>Data zrobienia zdjęcia</mat-label>
+        <input type="date" placeholder="wybierz date" matInput formControlName="date" [max]="today">
+        <mat-error *ngIf="form.get('date').dirty || form.get('date').invalid">
+          To pole jest wymagane
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Dodaj notatkę</mat-label>
+      <textarea matInput formControlName="note"></textarea>
+      <mat-error *ngIf="form.get('note').dirty || form.get('note').invalid">
+        To pole jest wymagane
+    </mat-error>
+    </mat-form-field>
+    <div class="add-img-form-field">
+      <input type="file"
+      #inputFile
+      accept="image/*"
+      style="display: none"
+      (change)="handleSelectFile($event)">
+      <input type="hidden"
+      #inputFile
+      style="display: none"
+      formControlName="image">
+      <button mat-raised-button (click)="inputFile.click()">
+        <mat-icon>add_photo_alternate</mat-icon>
+        {{imgBtnText}}
+      </button>
+      <img [src]="url">
+    </div>
+  </form>
+</div>
+<div class="buttons" mat-dialog-actions>
+    <button mat-button mat-dialog-close>Zamknij</button>
+    <button type="submit" [disabled]="!form.valid || !form.dirty && !imgChanged" mat-button (click)="handleClick()">Zapisz</button>
+</div>

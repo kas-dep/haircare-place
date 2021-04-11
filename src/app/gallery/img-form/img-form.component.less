@@ -1,0 +1,25 @@
+@import '../../../assets/style/variables.less';
+@import '../../../assets/style/mixins.less';
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.add-img-form-field {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-bottom: 1.5px solid @light-grey;
+  width: 100%;
+  height: 230px;
+}
+.add-img-form-field img {
+  max-width: 200px;
+  max-height: 200px;
+  padding: 5px
+}
+
+.add-img-form-field button {
+  color: @dark-grey;
+}

@@ -1,0 +1,132 @@
+@import '../../../assets/style/variables.less';
+nav {
+  display: flex;
+  flex-direction: column;
+}
+a {
+  color: @dark-grey;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 20px;
+  border-bottom: 1px solid @white;
+  background-color: @pink;
+  z-index: 2;
+  position: relative;
+  &:focus {
+    outline: none;
+    color: @white;
+  }
+}
+
+.sidebar {
+  width: 185px;
+  background: @pink;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+}
+
+.logo-face {
+  margin: 0;
+  width: 185px;
+  height: 170px;
+}
+
+.nested-menu a {
+  width: 144px;
+  background-color: @coral;
+  padding: 13px;
+  font-size: 13px;
+  border-left: 1px solid @white;
+  font-weight: 600;
+  color: @white;
+
+  &:focus {
+    color: @dark-grey;
+  }
+}
+
+.fa-power-off {
+  padding-left: 10px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.nested-menu {
+  width: 160px;
+  margin-bottom: 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  margin-left: 33px;
+  z-index: 1;
+  position: relative;
+  button {
+    background-color: @coral;
+    color: @white;
+    padding: 13px;
+    width: 144px;
+    border-left: 1px solid @white;
+    font-size: 13px;
+    &:focus {
+      outline: none;
+      color: @dark-grey;
+    }
+  }
+  a:focus {
+    outline: none;
+    color: @dark-grey;
+  }
+}
+
+i {
+  font-size: 17px;
+  margin-right: 5px;
+}
+
+button {
+  width: 100%;
+  outline: none;
+  color: @dark-grey;
+  text-transform: uppercase;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 20px;
+  border: none;
+  border-bottom: 1px solid @white;
+  background-color: @pink;
+  z-index: 2;
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+
+  &:focus {
+    outline: none;
+    color: @white;
+  }
+}
+
+.fa-caret-down {
+  margin: 0 0 0 20px;
+  font-size: 17px;
+}
+
+.active {
+  outline: none;
+  background-color: @coral;
+  a {
+    color: @white;
+  }
+}
+.active-dark {
+  outline: none;
+  background-color: @pink;
+  color: @dark-grey;
+}
+.fa-caret-down {
+  position: absolute;
+  right: 30px;
+}

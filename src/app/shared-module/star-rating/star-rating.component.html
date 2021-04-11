@@ -1,0 +1,9 @@
+<span
+    *ngFor="let rateId of ratesArray"
+    [ngClass]="isEditMode ? 'pointer' : 'default'"
+    [id]="'star_'+rateId"
+    (click)="handleClick(rateId+1)">
+    <mat-icon>
+      {{loadIcon(rateId)}}
+    </mat-icon>
+</span>

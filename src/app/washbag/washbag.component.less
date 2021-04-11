@@ -1,0 +1,84 @@
+@import '../../assets/style/mixins.less';
+@import '../../assets/style/variables.less';
+
+.container {
+  max-width: 994px;
+  flex-direction: column;
+  background: transparent;
+  .flex-centered();
+}
+.under-table {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.table-actions {
+  width: 60vw;
+  display: flex;
+  background-color: @very-light-transparent-pink;
+  justify-content: space-around;
+  border-radius: 5px;
+  margin: 20px;
+}
+.mat-elevation-z8 {
+  width: 100%;
+  background-color: @white;
+}
+.filter {
+  width: 100%;
+  padding: 0 20px 0 20px;
+}
+.paginator {
+  background-color: @very-light-transparent-pink;
+  border-radius: 5px;
+}
+.table-filter {
+  width: 300px;
+  background-color: @very-light-transparent-pink;
+}
+
+table {
+  width: 100%;
+  background-color: @white;
+}
+
+th {
+  font-weight: 700;
+  text-transform: uppercase;
+  color: @dark-grey;
+}
+
+.add-product-btn {
+  align-self: flex-end;
+}
+.fa-plus {
+  margin-left: 5px;
+}
+
+.delete-btn,
+.edit-btn {
+  .delete-edit-button-icon();
+}
+
+
+.check {
+  color: @green;
+  font-size: 15px;
+  margin-left: 25%;
+}
+
+.uncheck {
+  color: @red;
+  font-size: 15px;
+  margin-left: 25%;
+}
+
+.add-product-btn {
+  .main-button();
+}
+.add-product-btn:hover {
+  .main-button-hover();
+}
+.add-product-btn i {
+  .main-button-icon();
+}

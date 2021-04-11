@@ -1,0 +1,7 @@
+<app-sidebar *ngIf="isSidebarVisible"></app-sidebar>
+<div class="content-wrapper" [ngClass]="{'content-wrapper-login-view': !isSidebarVisible}">
+  <router-outlet></router-outlet>
+</div>
+
+<app-spinner></app-spinner>
+<app-toast></app-toast>

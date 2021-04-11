@@ -1,0 +1,18 @@
+<div>
+    <img class="hands-img" src="../../../assets/images/hands.PNG">
+</div>
+<h1>Sprawdź swoją przemianę!</h1>
+<div class="images">
+    <div class="first-img">
+        <img [src]="theOldestImg?.image">
+        <label>{{ theOldestImg?.date | date:"dd.MM.yyyy" }}</label>
+    </div>
+    <i class="far fa-arrow-alt-circle-right"></i>
+    <div class="last-img">
+        <img [src]="theLatestImg?.image">
+        <label>{{ theLatestImg?.date | date:"dd.MM.yyyy" }}</label>
+    </div>
+</div>
+<div mat-dialog-actions>
+    <button mat-button mat-dialog-close>Zamknij</button>
+</div>

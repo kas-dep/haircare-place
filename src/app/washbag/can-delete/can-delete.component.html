@@ -1,0 +1,10 @@
+<div class="container">
+    <p>
+        Czy na pewno chcesz usunąć produkt <span class="product-name"><br>{{this.data.product.name}}</span>?
+    </p>
+</div>
+<div class="buttons" mat-dialog-actions>
+    <button mat-button mat-dialog-close>Cofnij</button>
+    <button mat-button (click)="deleteProduct()">Tak</button>
+</div>
+
