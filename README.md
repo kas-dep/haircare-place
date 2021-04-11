@@ -17,7 +17,7 @@ That's a feature of bitbucket.
 
 ##  Technology Used
 - Angular 10
-- Typescript
+- TypeScript
 - HTML 5
 - CSS 3
 - Less
